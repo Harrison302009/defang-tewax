@@ -2,7 +2,7 @@
 
 const nextConfig = {
     images: {
-      domains: ["harrison302009-app.prod1.defang.dev"],
+      domains: ["avatars.githubusercontent.com", "harrison302009-app.prod1.defang.dev"],
     },
     experimental: {
       serverActions: true,

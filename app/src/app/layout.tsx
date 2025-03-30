@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Exo_2 } from "next/font/google";
-import './globals.css';
+import "./globals.css";
+import { SessionProvider } from "next-auth/react";
+import SessionWrapper from "@/components/session-layout/session-layout";
 
 const exo = Exo_2({ subsets: ["latin"] });
 
@@ -16,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={exo.className}>{children}</body>
+      <body className={exo.className}>
+        <SessionWrapper>{children}</SessionWrapper>
+      </body>
     </html>
   );
 }
