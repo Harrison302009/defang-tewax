@@ -116,8 +116,6 @@ export default function Home() {
             real time! This app empowers you with secure, fast, and intuitive
             peer-to-peer communication—no middleman, just pure connection."
         />
-        <br />
-        <Layers />
       </Stack>
     </Box>
   );

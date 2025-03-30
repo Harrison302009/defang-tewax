@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
     async session({session, token}) {
       if (token) {
         session.user.id = token.id as string; // Use token.id
-        session.user.createdAt = token.createdAt as string; // Pass ISO string to session
+        session.user.createdAt = token.createdAt as Date; // Pass ISO string to session
 
         // Check if the user already exists in the database
         const existingUser = await prisma.user.findUnique({
