@@ -3,7 +3,7 @@ services:
     restart: unless-stopped
     # domainname: mydomain.com # if you want to use your own domain
     build:
-      context: ./app
+      context: ./
       dockerfile: Dockerfile
 
     ports:
@@ -19,3 +19,21 @@ services:
         reservations:
           cpus: '0.50'
           memory: 512M
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: database
+    ports:
+      - mode: host
+        target: 5432
+        published: 5432
+
+  mailer:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025
+      - 1025:1025

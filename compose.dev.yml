@@ -1,0 +1,24 @@
+services:
+  app:
+    extends:
+      file: compose.yml
+      service: app
+    command: npm run dev
+    environment:
+      - POSTGRES_PRISMA_URL=postgresql://user:password@db:5432/database
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+
+  db:
+    extends:
+      file: compose.yml
+      service: db
+    volumes:
+      - ../data:/var/lib/postgresql/data
+
+  mailer:
+    extends:
+      file: compose.yml
+      service: mailer
